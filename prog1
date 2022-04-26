@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        let data = {
+            '2020-01-01': 4,
+            '2020-01-02': 4,
+            '2020-01-03': 6,
+            '2020-01-04': 8,
+            '2020-01-05': 2,
+            '2020-01-06': -6,
+            '2020-01-07': 2,
+            '2020-01-08': -2,
+        }
+        console.log(solve(data));
+
+        function solve(d) {
+            let result = {};
+            Object.keys(d).forEach(element => {
+                let week = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+                let day = week[new Date(element).getDay()];
+                result[day] = ((result[day] || 0) + d[element])
+            });
+            return result;
+        }
+    </script>
+</head>
+
+</html>
